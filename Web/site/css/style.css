@@ -36,6 +36,58 @@ body.page1 {
 	min-width: 1233px !important; 
 }
 
+input.controls {
+  width: 100%;
+  background: #24303c;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #1f53c5;
+  font-family: 'calibri';
+  font-size: 18px;
+  color: white;
+}
+
+fieldset.form-register {
+  width: 400px;
+  background: #24303c;
+  padding: 30px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 4px;
+  font-family: 'calibri';
+  color: white;
+  box-shadow: 7px 13px 37px #000;
+}
+
+fieldset.form-register p {
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+fieldset.form-register a {
+  color: white;
+  text-decoration: none;
+}
+
+fieldset.form-register a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+fieldset .form-register .botons {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+
 .ic, .ic a {
 	border:0;
 	float:right;
@@ -72,6 +124,16 @@ h2.ic1 {
 	background-image: url(../images/icon2.png);
 }
 
+h4.ic1 {
+	color: #fcfdfd;
+	font-size: 30px;
+	line-height: 34px;
+	background: url(../images/icon1.png) right bottom no-repeat;
+	display: inline-block;
+	padding-right: 50px;
+	padding-bottom: 2px;
+	margin-bottom: 30px;
+}
 p {
 	margin-bottom: 20px;
 }
@@ -191,7 +253,7 @@ a:hover {
 
 a.btn {
 	display: inline-block;
-	background: #6bf90dd2;
+	background: #4CAF50;
 	color: #fff;
 	margin-top: 38px;
 	padding: 7px 27px 13px 29px;
