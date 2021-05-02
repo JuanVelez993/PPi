@@ -48,12 +48,14 @@ input.controls {
   color: white;
 }
 
+
 fieldset.form-register {
   width: 400px;
   background: #24303c;
   padding: 30px;
   margin: auto;
   margin-top: 100px;
+  margin-left:200px;
   border-radius: 4px;
   font-family: 'calibri';
   color: white;
