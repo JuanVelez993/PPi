@@ -40,7 +40,8 @@ body {
 .grid_9,
 .grid_10,
 .grid_11,
-.grid_12 {
+.grid_12,
+.grid_13 {
   display: inline;
   float: left;
   margin-left: 10px;
@@ -98,6 +99,7 @@ body {
 
 .container_12 .grid_6 {
   width: 460px;
+ 
 }
 
 .container_12 .grid_7 {
@@ -122,6 +124,17 @@ body {
 
 .container_12 .grid_12 {
   width: 940px;
+ 
+}
+.container_12 .grid_13 {
+  width: 940px;
+  height: 15px;
+ 
+}
+.container_12 .grid_14 {
+  width: 940px;
+  height: 5px;
+ 
 }
 
 /* `Prefix Extra Space >> 12 Columns

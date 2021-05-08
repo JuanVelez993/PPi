@@ -693,7 +693,7 @@ footer {
 	height: 24px;
 	display: block;
 	float: left;
-	background: url(../images/socials.png) 0 0 no-repeat;
+	background: url(../images/Final.png) 0 0 no-repeat;
 }
 
 .socials a:hover {
@@ -702,17 +702,18 @@ footer {
 
 .socials a+a {
 	background-position: -35px 0;
+	
 }
-
 .socials a+a+a {
-	background-position: -70px 0;
-}
-
-.socials a+a+a+a {
 	background-position: right 0;
 }
 
-.socials a+a {
+.socials a+a+a+ {
+	background-position: -70px 0;
+}
+
+
+.socials a+a{
 	margin-left: 11px;
 }
 
