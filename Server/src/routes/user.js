@@ -5,8 +5,9 @@ const controller = require('../controllers/user')
 const joiValidation = require('../middlewares/joiValidation')
 
 function initUserRoutes(app) {
-  app.get('/', controller.get)
-  app.post('/', joiValidation(schemas.createUser, 'body'), controller.create)
+    app.get('/aaaa', controller.get)
+    app.post('/', joiValidation(schemas.createUser, 'body'), controller.create)
+    app.post('/createUser', controller.createUser)
 }
 
 module.exports = initUserRoutes
