@@ -1,6 +1,6 @@
 'use stric'
 
-function joiValidation(schema, prop) {
+/*function joiValidation(schema, prop) {
   return function (req, res, next) {
     const { value, error } = schema.validate(req[prop])
 
@@ -14,4 +14,4 @@ function joiValidation(schema, prop) {
   }
 }
 
-module.exports = joiValidation
+module.exports = joiValidation*/

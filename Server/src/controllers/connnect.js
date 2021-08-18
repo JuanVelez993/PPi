@@ -15,14 +15,6 @@ async function run() {
 
         console.log('Connection was successful!');
 
-        /*const result = await connection.execute(
-            `SELECT *
-       FROM nombremw
-       where id_nom in (:idbv, :aaa)`, [1, 4]
-        );
-
-        console.log(result.metaData);
-        console.log(result.rows);*/
 
     } catch (err) {
         console.error(err);

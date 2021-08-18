@@ -10,10 +10,18 @@ const options = {
 };
 /*Esta funcion captura los datos de los inputs para el campo nombres del registro de usuario */
 async function insertNombre(data) {
-    const sql = "INSERT INTO nombremw values ((select max(id_nom)+1 from nombremw), :nombre)";
-    const binds = [
-        { nombre: data.nombre }
-    ];
+    const sql = "INSERT INTO USUARIO values ((select max(ID_USUARIO)+1 from USUARIO), :nombre,:nombre2,:apel,:apel2,:tel,:email,:dir,:doc,:pwd)";
+    const binds = [{
+        nombre: data.nombre,
+        nombre2: data.nombre2,
+        apel: data.apel,
+        apel2: data.apel2,
+        tel: data.tel,
+        email: data.email,
+        dir: data.dir,
+        doc: data.doc,
+        pwd: data.pwd
+    }, ];
 
     try {
         executeSqlInsert(sql, binds)

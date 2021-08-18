@@ -1,9 +1,7 @@
 'use strict'
 
 const initUserRoutes = require('./user')
-
-function initRoutes(app) {
-  initUserRoutes(app)
-}
+const express = require('express');
+const routerUser = express.Router();
 
 module.exports = initRoutes
