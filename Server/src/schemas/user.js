@@ -1,6 +1,6 @@
 'use strict'
 
-const Joi = require('joi')
+/*const Joi = require('joi')
 
 const createUser = Joi.object().keys({
   name: Joi.string().required('El campo nombre es obligatorio'),
@@ -10,4 +10,4 @@ const createUser = Joi.object().keys({
 
 module.exports = {
   createUser
-}
+}*/

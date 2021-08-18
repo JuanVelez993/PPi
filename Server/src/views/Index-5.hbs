@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="/images/favicon.ico" />
     <link rel="stylesheet"  type="text/css" href="/css/style.css">
     <link rel="stylesheet"  type="text/css" href="/css/form.css">
-    <link rel="stylesheet" type="text/css" href="css/registrostyle.css">
+   
     <style>
         .pt1 {
             background-image: url("images/fondoregis.jpg");
@@ -20,7 +20,7 @@
 
     </style>
     <script src="js/jquery.js"></script>
-    <script src="js/forms.js"></script>
+    <!--script src="js/forms.js"></!--script-->
     <script src="js/jquery-migrate-1.1.1.js"></script>
     <script src="js/superfish.js"></script>
     <script src="js/jquery.equalheights.js"></script>
@@ -85,45 +85,51 @@
 
                     <fieldset class="form-register">
                         <h4 class="ic1">Registro de Usuario:</h4>
+                        <div class="mpd">
                         <label class="name">
-                            <input class="controls" type="text" name="nombre" placeholder="Nombres:">
+                            <input class="controls" type="text" name="nombre" placeholder="Primer Nombre:">
                             <br class="clear">
-                            <span class="error error-empty">*Este no es un nombre valido.</span><span
-                                class="empty error-empty">*Este campo es requerido.</span> </label>
+                            <span class="empty error-empty">*Este campo es requerido.</span> </label>
+                        <label class="name2">
+                              <input class="controls" type="text" name="nombre2" placeholder="Segundo Nombre:">
+                              <br class="clear">
+                         </label></div>
+                        <div class="mpd">
                         <label class="lname">
-                            <input class="controls" type="text" name="apellidos"placeholder="Apellidos:">
+                            <input class="controls" type="text" name="apel"placeholder=" Primer Apellido:">
                             <br class="clear">
-                            <span class="error error-empty">*Este no es un apellido valido.</span><span
-                                class="empty error-empty">*Este campo es
-                                requerido.</span> </label>
+                            <span class="empty error-empty">*Este campo es requerido.</span> </label>
+                          <label class="lname2">
+                            <input class="controls" type="text" name="apel2" placeholder=" Segundo Apellido:">
+                            <br class="clear">
+                            <span class="empty error-empty">*Este campo es requerido.</span> </label>
+                            </div>
+                            <div class="mpd">
+                          <label class="phone">
+                            <input class="controls" type="text" name="tel" placeholder="Telefono:">
+                            <br class="clear">
+                            <span class="error error-empty">*Este no es un telefono valido.</span> </label>
+                          <label class="email">
+                            <input class="controls" type="email" name="email" placeholder="E-mail:">
+                            <br class="clear">
+                            <span class="error error-empty">*Esta no es una direccion de email valida.</span>
+                            <span class="empty error-empty">*Este campo es requerido.</span>
+                          </label>
+                          </div>
+                          <div class="mpd">
+                          <label class="dir">
+                            <input class="controls" type="text" name="dir" placeholder="Direccion:">
+                            <br class="clear">
+                            <span class="empty error-empty">*Este campo es requerido.</span> </label>
                         <label class="doc">
-                            <input class="controls" type="number" name="docu"placeholder="Documento:">
+                            <input class="controls" type="text" name="doc"placeholder="Documento:">
                             <br class="clear">
                             <span class="error error-empty">*este no es un documento valido.</span><span
                                 class="empty error-empty">*Este campo es
                                 requerido</span> </label>
-                        <label class="email">
-                            <input class="controls" type="email"  name="email"placeholder="E-mail:">
-                            <br class="clear">
-                            <span class="error error-empty">*Esta no es una direccion de email valida.</span>
-                        </label>
-                        <label class="phone">
-                            <input class="controls" type="tel" name="telefono"placeholder="Telefono:">
-                            <br class="clear">
-                            <span class="error error-empty">*Este no es un telefono valido.</span> </label>
-                        <label class="celphone">
-                            <input class="controls" type="cel"  name="celular"placeholder="Celular:">
-                            <br class="clear">
-                            <span class="error error-empty">*Este no es un celular valido.</span><span
-                                class="empty error-empty">*Este campo es requerido.</span> </label>
-                        <label class="fechanaci">
-                            <label id="fechanaci1">Fecha de Nacimiento:</label><input class="controls" id="fechanaci1"
-                                type="date" name="fecha">
-                            <br class="clear">
-                            <span class="empty error-empty">*Este campo es requerido.</span>
-                        </label><br>
+                                </div>
                         <label class="contraseña">
-                            <div><label for="pwd">Contraseña:</label><input class="controls" id="pwd" type="password" name="pswd">
+                            <div class="mpwd"><label for="pwd">Contraseña:</label><input class="controls" id="pwd" type="password" name="pwd">
                             </div>
                         </label><br>
                         <div class="clear"></div>
@@ -133,9 +139,12 @@
                         </div-->
                         
                     </fieldset>
-                    <button class="btn" type="submit">Registrarse</button>
-
-                </form>
+                    
+                <div class="mpd">
+                  <button class="btn" type="submit">Registrarse</button>
+                  <button class="btn" type="reset" value="Reset">Limpiar</button>
+                </div>
+              </form>
 
             </div>
 
