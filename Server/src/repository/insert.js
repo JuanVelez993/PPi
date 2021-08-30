@@ -10,7 +10,7 @@ const options = {
     autoCommit: true
 };
 /*Esta funcion captura los datos de los inputs para el campo nombres del registro de usuario */
-async function insertNombre(data) {
+async function insertUser(data) {
     const sql = "INSERT INTO USUARIO values ((select max(ID_USUARIO)+1 from USUARIO), :nombre , :nombre2 , :apel , :apel2 , :tel , :email , :dir , :doc , :pwd)";
     const binds = [{
         nombre: data.nombre,
@@ -99,5 +99,5 @@ async function executeSelect(sql, binds) {
     }
 }
 
-exports.insert = insertNombre
+exports.insert = insertUser
 exports.validarUsuario = validarUsuario

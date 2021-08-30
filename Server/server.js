@@ -10,6 +10,7 @@ const session = require('express-session')
 const controller = require('./src/controllers/user')
 //const handlebars = require('express-handlebars');
 const routes = require('./src/routes/user')
+const helpers = require('./src/middlewares/helpers')
 //crea una app de express
 const app = express()
 // configura el puerto del server
@@ -77,6 +78,8 @@ const middlewares = [
     bodyParser.urlencoded({ extended: true }),
 ];
 app.use(middlewares);
+helpers.registerHelpers();
+
 /*------------------------------------------------------------------------------------------------ */
 
 

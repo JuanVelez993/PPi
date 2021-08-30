@@ -31,6 +31,17 @@ async function cerrarSesion(req, res, next) {
     }
 }
 
+//TODO terminar
+async function recuperarPassword(req, res, next) {
+    try {
+        req.app.locals.infoSession = { logged: false, info: null };
+        res.render("index")
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('Internal server error')
+    }
+}
+
 module.exports = {
     validarUsuario,
     cerrarSesion
