@@ -45,7 +45,7 @@ button:hover {
 }
     </style>
     <script src="js/jquery.js"></script>
-    <script src="js/forms.js"></script>
+    <!--script src="js/forms.js"></!--script-->
     <script src="js/jquery-migrate-1.1.1.js"></script>
     <script src="js/superfish.js"></script>
     <script src="js/jquery.equalheights.js"></script>
@@ -73,36 +73,13 @@ button:hover {
 </head>
 
 <body>
-    <!--==============================header=================================-->
-    <header> 
-        <div class="container_12">
-          <div class="grid_13">
-            <h1><a href="index.html"><img src="images/logo1.jpeg" ></a> </h1>
-            <div class="menu_block">
-              <nav class="">
-                <ul class="sf-menu">
-                  <li class="current"><a href='/'>Inicio</a></li>
-                  <li><a href='/AboutUs'>Sobre Nosotros </a></li>
-                  <li><a href='/PerrosAdop'>Perros en adopción</a></li>
-                  <li><a href='/Contact'>Contacto </a></li>
-                  <li><a href='/Registro'>Iniciar Sesión </a></li>
-                  
-                </ul>
-              </nav>
-              <div class="clear"></div>
-            </div>
-            <div class="clear"></div>
-          </div>
-          
-        </div>
-      </header>
-
+    {{> header}}
     <div class="content pt1">
         <div class="ic"></div>
         <div class="container_12">
 
             <div class="grid_5 prefix_1">
-                <form id="form">
+                <form id="form" action="logIn" method="post">
                     <div class="success_wrapper">
                         <div class="success">Registro exitoso!<br>
                             <strong>Ya puede inciar sesion.</strong>
@@ -110,8 +87,10 @@ button:hover {
                     </div>
                     <fieldset>
                         <h2>Iniciar Sesion</h2>
-                        
-                        <form action="/action_page.php" method="post">
+                        {{#if mensajeError}}
+                          <label for="mensajeError"><b>{{mensajeError}}</b></label>
+                        {{/if}}
+                        <form action="logIn" method="post">
                             <div class="imgcontainer">
                                 <img src="images\logo1.jpeg" alt="Avatar" class="avatar">
                             </div>
@@ -125,7 +104,7 @@ button:hover {
                                 <input type="password" placeholder="Enter Password" name="psw" required>
                         
                                 <button type="submit">Ingresar</button> 
-                                <a href = "Index-5.html" button type="submit">Registrarse</button>
+                                <a href = "/Registro" button type="submit">Registrarse</button>
                                 
                         
                             </div>

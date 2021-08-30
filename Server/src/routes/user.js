@@ -1,10 +1,13 @@
 'use strict'
 
-const controller = require('../controllers/user')
+const controllerUser = require('../controllers/user')
+const controllerLogIn = require('../controllers/logIn')
 
 const express = require('express');
 const routerUser = express.Router();
 
-routerUser.post('/createUser', controller.createUser);
+routerUser.post('/createUser', controllerUser.createUser);
+routerUser.post('/logIn', controllerLogIn.validarUsuario);
+routerUser.get('/logout', controllerLogIn.cerrarSesion);
 
 module.exports = routerUser;

@@ -2,54 +2,72 @@
 /* se declaran las dependencias que se usaran y se configura el servidor*/
 const path = require('path')
 const express = require('express');
-const hbs = require('express-handlebars')
+
 const bodyParser = require('body-parser')
-    //const initRoutes = require('./src/routes')
+const session = require('express-session')
+//const initRoutes = require('./src/routes')
 
 const controller = require('./src/controllers/user')
+//const handlebars = require('express-handlebars');
 const routes = require('./src/routes/user')
-    //crea una app de express
+//crea una app de express
 const app = express()
-    // configura el puerto del server
+// configura el puerto del server
 app.set('port', 3000);
 /*---------------------------------------------------------------------- */
+
+app.use(session({
+    secret: 'Keep it secret'
+    , name: 'uniqueSessionID'
+    , saveUninitialized: false
+}))
 
 
 /*--------------------esta seccion configura las propiedades de los archivos .hbs------------ */
 
-app.set('view engine', 'hbs')
-    //carga los archivos estaticos que deben estar ubicados en una carpeta root 
+
+
+
+
+    //carga los archivos estaticos que deben estar ubicados en una carpeta root
+const hbs = require('hbs');
+    
 app.use(express.static('public'));
 //añade la carpeta de las vistas
-app.set('views', path.join(__dirname, 'src/views'));
-
+app.set('view engine', 'hbs')
+app.set('views', path.join(__dirname, 'views'));
+hbs.registerPartials(path.join(__dirname, 'views/partials'))
 
 /*------------------esta seccion define las rutas para los archivos de la web------------------------- */
 // llama la pagina principal donde se iniciar al entrar en la web con el ser ver activo
+
+app.locals.infoSession = {
+    logged: false,
+    info: null
+};
+
+
 app.get('/', (req, res) => {
-    res.render('Index', {
-        title: 'Home',
-        errorMessage: 'Server is not working',
-        footer: '',
-    })
+    res.render('index')
 })
+
 app.get('/AboutUs', (req, res) => {
-    res.render('Index-1')
+    res.render('index-1')
 })
 app.get('/Nose', (req, res) => {
-    res.render('Index-2')
+    res.render('index-2')
 })
 app.get('/PerrosAdop', (req, res) => {
-    res.render('Index-3')
+    res.render('index-3')
 })
 app.get('/Contact', (req, res) => {
-    res.render('Index-4')
+    res.render('index-4')
 })
 app.get('/Registro', (req, res) => {
-    res.render('Index-5')
+    res.render('index-5')
 })
 app.get('/LogIn', (req, res) => {
-    res.render('Index-6')
+    res.render('index-6')
 })
 
 /*--------------------------------------------------------------------------------------------- */
@@ -63,7 +81,7 @@ app.use(middlewares);
 
 
 app.use('/', routes)
-    //app.post('/createUser', controller.createUser)
+//app.post('/createUser', controller.createUser)
 
 app.listen(3000, () => {
     console.log('Server is up on port 3000');

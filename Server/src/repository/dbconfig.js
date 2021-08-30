@@ -4,6 +4,6 @@ cuyas tablas vayamos a usar en la aplicacion*/
 module.exports = {
     user: "us_pa",
     password: "contra",
-    connectString: "localhost:1521/XE",
+    connectString: "localhost:1521/XEPDB1",
     externalAuth: false
 };
