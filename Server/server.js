@@ -47,33 +47,6 @@ app.locals.infoSession = {
     info: null
 };
 
-
-app.get('/', (req, res) => {
-    res.render('index')
-})
-
-app.get('/AboutUs', (req, res) => {
-    res.render('index-1')
-})
-app.get('/Nose', (req, res) => {
-    res.render('index-2')
-})
-app.get('/PerrosAdop', (req, res) => {
-    res.render('index-3')
-})
-app.get('/Contact', (req, res) => {
-    res.render('index-4')
-})
-app.get('/Registro', (req, res) => {
-    res.render('index-5')
-})
-app.get('/LogIn', (req, res) => {
-    res.render('index-6')
-})
-app.get('/FormAdop', (req, res) => {
-    res.render('index-7')
-})
-
 /*--------------------------------------------------------------------------------------------- */
 
 /*---------------------------------middlewares----------------------------------------------------- */
@@ -87,7 +60,6 @@ helpers.registerHelpers();
 
 
 app.use('/', routes)
-    //app.post('/createUser', controller.createUser)
 
 app.listen(3000, () => {
     console.log('Server is up on port 3000');

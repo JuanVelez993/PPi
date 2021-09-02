@@ -207,57 +207,17 @@
             </div>
             <div class="clear"></div>
             <ul class="carousel1">
+                {{#each perros}}
                 <li class="grid_4">
                     <img src="images/Perro1.png" alt="" class="img_inner fleft">
                     <div class="extra_wrapper pad1">
-                        <p class="col2"><a href="#">Praesent quis orcidiam viverralopr </a></p>Raes quis orci eget diam
-                        viverralopr con equat. Fusce sagit quam ihui hyhy kolo opirlo pulvinarhjkjo. <a
-                            href="/PerrosAdop" class="btn">Detalles</a>
+                        <p class="col2">
+                            <a href="#">{{nombre}}</a>
+                        </p>{{descripcion}} 
+                        <a href={{#if ../infoSession.logged}}"/FormAdop"{{else}}"/LogIn"{{/if}} class="btn">Detalles</a>
                     </div>
                 </li>
-                <li class="grid_4">
-                    <img src="images/carousel1_img2.jpg" width="139" 
-                     height="110"alt="" class="img_inner fleft">
-                    <div class="extra_wrapper pad1">
-                        <p class="col2"><a href="#">Aeraesent quis hoj rcieget diam iverral.</a></p>Loaesent quis orci
-                        diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit. <a
-                            href="/PerrosAdop" class="btn">Detalles</a>
-                    </div>
-                </li>
-                <li class="grid_4">
-                    <img src="images/carousel1_img3.jpg" alt="" class="img_inner fleft">
-                    <div class="extra_wrapper pad1">
-                        <p class="col2"><a href="#">Tyeraesent quis hojo rcieget iam iverralji.</a></p>Eroaesent quis
-                        orci ediam viverralopr con jikjulo poiu retyulo hyk equat. Usce sagittis ki quam ihui hyhy
-                        opirp. <a href="/PerrosAdop" class="btn">Detalles</a>
-                    </div>
-                </li>
-                <li class="grid_4">
-                    <img src="images/carousel1_img4.jpg" alt="" class="img_inner fleft">
-                    <div class="extra_wrapper pad1">
-                        <p class="col2"><a href="#">Aeraesent quis hoj rcieget diam iverral.</a></p>Loaesent quis orci
-                        diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit. <a
-                            href="/PerrosAdop" class="btn">Detalles</a>
-                    </div>
-                </li>
-                <li class="grid_4">
-                    <img src="images/carousel1_img5.jpg" width="139" 
-                     height="110" alt="" class="img_inner fleft"> 
-                    <div class="extra_wrapper pad1">
-                        <p class="col2"><a href="#">Aeraesent quis hoj rcieget diam iverral.</a></p>Loaesent quis orci
-                        diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit. <a
-                            href="/PerrosAdop" class="btn">Detalles</a>
-                    </div>
-                </li>
-                <li class="grid_4">
-                    <img src="images/carousel1_img6.jpg" width="139" 
-                     height="110" alt="" class="img_inner fleft">
-                    <div class="extra_wrapper pad1">
-                        <p class="col2"><a href="#">Aeraesent quis hoj rcieget diam iverral.</a></p>Loaesent quis orci
-                        diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit. <a
-                            href="/PerrosAdop" class="btn">Detalles</a>
-                    </div>
-                </li>
+                {{/each}}
             </ul>
         </div>
     </div>

@@ -13,6 +13,18 @@ async function createUser(req, res) {
     }
 }
 
+async function prueba(req, res) {
+    try {
+        //console.log("app", app.locals)
+        console.log("req", req.app.locals)
+        console.log("res", res.locals)
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('Internal server error')
+    }
+}
+
 module.exports = {
-    createUser
+    createUser,
+    prueba
 }

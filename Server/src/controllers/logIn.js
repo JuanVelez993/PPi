@@ -1,6 +1,5 @@
 'use strict'
 
-const session = require('express-session')
 const service = require('../services/LogIn')
 
 async function validarUsuario(req, res, next) {
@@ -9,7 +8,7 @@ async function validarUsuario(req, res, next) {
         validacion.then((userInfo) => {         
             if (userInfo) {
                 req.app.locals.infoSession = { logged: true, info: userInfo };
-                res.render("index")
+                res.redirect("/")
             } else {
                 req.app.locals.infoSession = { logged: false, info: null };
                 res.render("index-6", { mensajeError: "usuario o contraseña incorrecto" })
@@ -24,7 +23,7 @@ async function validarUsuario(req, res, next) {
 async function cerrarSesion(req, res, next) {
     try {
         req.app.locals.infoSession = { logged: false, info: null };
-        res.render("index")
+        res.redirect("/")
     } catch (err) {
         console.error(err)
         res.status(500).send('Internal server error')
@@ -34,15 +33,17 @@ async function cerrarSesion(req, res, next) {
 //TODO terminar
 async function recuperarPassword(req, res, next) {
     try {
-        req.app.locals.infoSession = { logged: false, info: null };
-        res.render("index")
+        service.enviarCorreoPassword(req.body)
+        res.render("index-8", { mensaje: "Correo enviado correctamente" })
     } catch (err) {
         console.error(err)
         res.status(500).send('Internal server error')
+        res.render("index-8", { mensaje: "Error al enviar el correo" })
     }
 }
 
 module.exports = {
     validarUsuario,
-    cerrarSesion
+    cerrarSesion,
+    recuperarPassword
 }

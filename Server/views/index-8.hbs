@@ -59,18 +59,6 @@
       $().UItoTop({ easingType: 'easeOutQuart' });
     });
   </script>
-  <!--[if lt IE 8]>
-       <div style=' clear: both; text-align:center; position: relative;'>
-         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-         </a>
-      </div>
-    <![endif]-->
-  <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <link rel="stylesheet" media="screen" href="css/ie.css">
-
-    <![endif]-->
 </head>
 
 <body>
@@ -80,16 +68,16 @@
     <div class="container_12">
 
       <div class="grid_5 prefix_1">
-        <form id="form" action="logIn" method="post">
+        <form id="form" action="/forgotPassword" method="post">
           <div class="success_wrapper">
             <div class="success">Registro exitoso!<br>
               <strong>Ya puede inciar sesion.</strong>
             </div>
           </div>
           <fieldset>
-            <h2>Iniciar Sesion</h2>
-            {{#if mensajeError}}
-            <label for="mensajeError"><b>{{mensajeError}}</b></label>
+            <h2>Recuperación de contraseña</h2>
+            {{#if mensaje}}
+            <label for="mensajeError"><b>{{mensaje}}</b></label>
             {{/if}}
             <form action="logIn" method="post">
               <div class="imgcontainer">
@@ -97,18 +85,10 @@
               </div>
 
               <div class="container">
-                <label for="uname"><b>Usuario</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <label for="mail"><b>Correo Electrónico</b></label>
+                <input type="text" placeholder="Enter Mail" name="mail" required>
 
-
-                <label for="psw"><b>Contraseña</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-
-                <button type="submit">Ingresar</button>
-                <a href="/Registro">Registrarse</a> - 
-                <a href="/RecuperarPassword">¿Olvidaste tu contraseña?</a>
-
-
+                <button type="submit">Enviar al Correo</button>
               </div>
 
 

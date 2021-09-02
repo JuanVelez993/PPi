@@ -34,82 +34,88 @@
         });
     </script>
     <!--[if lt IE 8]>
-       <div style=' clear: both; text-align:center; position: relative;'>
-         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-         </a>
-      </div>
-    <![endif]-->
+        <div style=' clear: both; text-align:center; position: relative;'>
+            <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+            <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+            </a>
+        </div>
+        <![endif]-->
     <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <link rel="stylesheet" media="screen" href="css/ie.css">
+        <script src="js/html5shiv.js"></script>
+        <link rel="stylesheet" media="screen" href="css/ie.css">
 
-    <![endif]-->
+        <![endif]-->
 </head>
 
 <body>
     {{> header}}
     <div class="content pt1">
-        <div class="ic"></div>
+        <div class="ic">
+
+        </div>
         <div class="container_12">
             <div class="grid_5 prefix_1">
-                <fieldset class="form-register">
-                    <h4 class="ic1">Formulario de Adopcion:</h4>
-                    <div class="mpd">
-                        <label class="mov_adop">
-                            <input class="controls" type="text" name="mov_adop" placeholder="Motivo Adopcion">
-                            <br class="clear">
-                             </label>
-                        <label class="ani_cas">
-                            <input class="controls" type="text" name="ani_cas" placeholder="Animales en casa:">
-                            <br class="clear">
-                        </label>
-                    </div>
-                    <div class="mpd">
-                        <label class="ani_ant">
-                            <input class="controls" type="text" name="ani_ant" placeholder=" Animales anteriores:">
-                            <br class="clear">
-                             </label>
-                        <label class="hijos">
-                            <input class="controls" type="text" name="hijos" placeholder=" Numeros de hijos:">
-                            <br class="clear">
-                             </label>
-                    </div>
-                    <div class="mpd">
-                        <label class="habit_cas">
-                            <input class="controls" type="text" name="habit_cas" placeholder="Habitantes en la casa:">
-                            <br class="clear">
-                             </label>
-                        <label class="salario">
-                            <input class="controls" type="email" name="salario" placeholder="Salario:">
-                            <br class="clear">
-                            
-                        </label>
-                    </div>
-                    <div class="mpd">
-                        <label class="est_civ">
-                            <input class="controls" type="text" name="est_civ" placeholder="Estado civil:">
-                            <br class="clear">
-                             </label>
-                        <label class="ale_fam">
-                            <input class="controls" type="text" name="ale_fam" placeholder="Alergias familia:">
-                            <br class="clear">
-                             </label>
-                    </div>
-                    <label class="ref">
-                        <input class="controls" type="text" name="ref" placeholder="Referencias:">
-                        <br class="clear">
-                         </label><br>
-                    <div class="clear"></div>
-                    <div class="mpd">
-                        <button class="btn" type="submit">Solicitar Adopcion</button>
-                        <button class="btn" type="reset" value="Reset">Limpiar</button>
-                    </div>
-                </fieldset>
-                
-                
-                </form>
+                <form id="form" action="/saveAdoptForm" method="post">
+                    {{#if mensajeUsuario}}
+                        <label for="mensajeUsuario"><b>{{mensajeUsuario}}</b></label>
+                    {{/if}}
+                    <label for="nombrePerro"><b>Nombre Perro: {{nombrePerro}}</b></label>
+                    <fieldset class="form-register">
+                        <h4 class="ic1">Formulario de Adopcion:</h4>
+                        <div class="mpd">
+                            <label class="mov_adop">
+                                <input class="controls" type="text" name="mov_adop" placeholder="Motivo Adopcion">
+                                <br class="clear">
+                            </label>
+                            <label class="ani_cas">
+                                <input class="controls" type="text" name="ani_cas" placeholder="Animales en casa:">
+                                <br class="clear">
+                            </label>
+                        </div>
+                        <div class="mpd">
+                            <label class="ani_ant">
+                                <input class="controls" type="text" name="ani_ant" placeholder=" Animales anteriores:">
+                                <br class="clear">
+                            </label>
+                            <label class="hijos">
+                                <input class="controls" type="text" name="hijos" placeholder=" Numeros de hijos:">
+                                <br class="clear">
+                            </label>
+                        </div>
+                        <div class="mpd">
+                            <label class="habit_cas">
+                                <input class="controls" type="text" name="habit_cas"
+                                    placeholder="Habitantes en la casa:">
+                                <br class="clear">
+                            </label>
+                            <label class="salario">
+                                <input class="controls" type="text" name="salario" placeholder="Salario:">
+                                <br class="clear">
 
+                            </label>
+                        </div>
+                        <div class="mpd">
+                            <label class="est_civ">
+                                <input class="controls" type="text" name="est_civ" placeholder="Estado civil:">
+                                <br class="clear">
+                            </label>
+                            <label class="ale_fam">
+                                <input class="controls" type="text" name="ale_fam" placeholder="Alergias familia:">
+                                <br class="clear">
+                            </label>
+                        </div>
+                        <label class="ref">
+                            <input class="controls" type="text" name="ref" placeholder="Referencias:">
+                            <br class="clear">
+                        </label><br>
+                        <div class="clear"></div>
+                        <div class="mpd">
+                            <button class="btn" type="submit">Solicitar Adopcion</button>
+                            <button class="btn" type="reset" value="Reset">Limpiar</button>
+                        </div>
+                        <input type="text" name="idPerro" value="{{idPerro}}" style="display:none">
+                    </fieldset>
+                </form>
             </div>
 
 
