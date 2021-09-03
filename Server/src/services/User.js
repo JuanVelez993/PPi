@@ -1,5 +1,5 @@
 'use strict'
-const db = require('../repository/insert')
+const db = require('../repository/dbQuery')
 
 class User {
     async createUser(data) {

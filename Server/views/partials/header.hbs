@@ -5,16 +5,26 @@
       <div class="menu_block">
         <nav class="">
           <ul class="sf-menu">
+            {{#if infoSession.isAdmin}}
+            <li><a href='/AdminFormAdop'>Administrar Adopciones</a></li>
+            {{/if}}
+
             <li class="current"><a href='/'>Inicio</a></li>
+
             <li><a href='/AboutUs'>Sobre Nosotros </a></li>
+
             {{#if infoSession.logged}}
             <li><a href='/PerrosAdop'>Perros en adopción</a></li>
             {{/if}}
+
+            {{#unless infoSession.isAdmin}}
             <li><a href='/Contact'>Contacto </a></li>
+            {{/unless}}
+
             {{#if infoSession.logged}}
-              <li><a href='/logout'>Cerrar Sesión </a></li>    
+            <li><a href='/logout'>Cerrar Sesión </a></li>
             {{else}}
-              <li><a href='/LogIn'>Iniciar Sesión </a></li>
+            <li><a href='/LogIn'>Iniciar Sesión </a></li>
             {{/if}}
 
           </ul>
@@ -24,4 +34,7 @@
       <div class="clear"></div>
     </div>
   </div>
+  {{#if infoSession.info.primerNombre}}
+  **** BIENVENIDO {{infoSession.info.primerNombre}} ****
+  {{/if}}
 </header>

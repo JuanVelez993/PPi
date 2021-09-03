@@ -5,12 +5,20 @@ const service = require('../services/LogIn')
 async function validarUsuario(req, res, next) {
     try {
         const validacion = service.logIn(req.body)
-        validacion.then((userInfo) => {         
+        validacion.then((userInfo) => {
             if (userInfo) {
-                req.app.locals.infoSession = { logged: true, info: userInfo };
+                req.app.locals.infoSession = {
+                    logged: true,
+                    info: userInfo,
+                    isAdmin: userInfo.cargo == 1
+                };
                 res.redirect("/")
             } else {
-                req.app.locals.infoSession = { logged: false, info: null };
+                req.app.locals.infoSession = {
+                    logged: false,
+                    info: null,
+                    isAdmin: false
+                };
                 res.render("index-6", { mensajeError: "usuario o contraseña incorrecto" })
             }
         })
