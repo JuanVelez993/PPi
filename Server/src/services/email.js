@@ -6,7 +6,7 @@ class Email {
   async enviarCorreoRecuperarPassword(usuario) {
     const subject = 'Puppy Adopt - Recuperación de Contraseña';
     const text = 'Tu contraseña es: ' + usuario.password;
-    this.enviarCorreo(usuario.mail, subject, text);
+    this.enviarCorreo(usuario.correo, subject, text);
   }
 
   async enviarCorreoFormulario(formulario) {
