@@ -24,7 +24,8 @@ function perro(data) {
         'genero',
         'nombre',
         'edad',
-        'descripcion'
+        'descripcion',
+        'rutaImagen'
     ], data);
 }
 

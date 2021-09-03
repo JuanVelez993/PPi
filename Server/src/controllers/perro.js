@@ -51,8 +51,10 @@ async function saveAdoptForm(req, res) {
 
 async function updateAdoptForm(req, res) {
     try {
-        const user = await service.actualizarFormularioAdopcion(req.params.id, req.params.estado)
-        service.buscarFormularioAdopcion(req.params.id).then(formulario => email.enviarCorreoFormulario(formulario));
+        await service.actualizarFormularioAdopcion(req.params.id, req.params.estado).then(() =>
+            service.buscarFormularioAdopcion(req.params.id).then(formulario => email.enviarCorreoFormulario(formulario))
+        );
+
         res.redirect("/AdminFormAdop")
     } catch (err) {
         console.error(err)

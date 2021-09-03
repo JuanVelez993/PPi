@@ -103,7 +103,7 @@ async function selectUsuario(data) {
 }
 
 async function selectPerros() {
-    const sql = "SELECT P.ID_PERRO , R.NOMBRE_RAZA, C.COLOR , G.GENERO , P.NOMBRE_PERRO, P.EDAD, P.DESCRIPCION FROM PERRO P " +
+    const sql = "SELECT P.ID_PERRO , R.NOMBRE_RAZA, C.COLOR , G.GENERO , P.NOMBRE_PERRO, P.EDAD, P.DESCRIPCION, P.RUTA_IMAGEN FROM PERRO P " +
         " JOIN RAZA R ON R.ID_RAZA = P.ID_RAZA" +
         " JOIN COLOR C ON C.ID_COLOR = P.ID_COLOR" +
         " JOIN GENERO G ON G.ID_GENERO = P.ID_GENERO" +
