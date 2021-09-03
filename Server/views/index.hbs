@@ -209,12 +209,12 @@
             <ul class="carousel1">
                 {{#each perros}}
                 <li class="grid_4">
-                    <img src="images/Perro1.png" alt="" class="img_inner fleft">
+                    <img src="images/{{#if rutaImagen}}{{rutaImagen}}{{else}}perro_default.png{{/if}}" alt="" class="img_inner fleft" width="150" height="150">
                     <div class="extra_wrapper pad1">
                         <p class="col2">
                             <a href="#">{{nombre}}</a>
                         </p>{{descripcion}} 
-                        <a href={{#if ../infoSession.logged}}"/FormAdop"{{else}}"/LogIn"{{/if}} class="btn">Detalles</a>
+                        <a href={{#if ../infoSession.logged}}"/PerrosAdop"{{else}}"/LogIn"{{/if}} class="btn">Detalles</a>
                     </div>
                 </li>
                 {{/each}}
