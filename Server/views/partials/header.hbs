@@ -9,6 +9,10 @@
             <li><a href='/AdminFormAdop'>Administrar Adopciones</a></li>
             {{/if}}
 
+            {{#if infoSession.isAdmin}}
+            <li><a href='/RegistroPerro'>Registrar Perro</a></li>
+            {{/if}}
+
             <li class="current"><a href='/'>Inicio</a></li>
 
             <li><a href='/AboutUs'>Sobre Nosotros </a></li>
@@ -17,9 +21,7 @@
             <li><a href='/PerrosAdop'>Perros en adopción</a></li>
             {{/if}}
 
-            {{#unless infoSession.isAdmin}}
             <li><a href='/Contact'>Contacto </a></li>
-            {{/unless}}
 
             {{#if infoSession.logged}}
             <li><a href='/logout'>Cerrar Sesión </a></li>

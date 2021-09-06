@@ -5,6 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const routes = require('./src/routes/router')
 const helpers = require('./src/middlewares/helpers')
+const fileUpload = require('express-fileupload');
 
 const app = express()
 const hbs = require('hbs');
@@ -23,6 +24,7 @@ app.locals.infoSession = {
 
 const middlewares = [ bodyParser.urlencoded({ extended: true }) ];
 app.use(middlewares);
+app.use(fileUpload());
 
 helpers.registerHelpers();
 app.use('/', routes)

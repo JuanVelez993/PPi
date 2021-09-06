@@ -9,7 +9,7 @@ class LogIn {
 
   async enviarCorreoPassword(data) {
     return db.consultarUsuario(data).then((usuario) => {
-      email.enviarCorreoRecuperarPassword(usuario);
+      return email.enviarCorreoRecuperarPassword(usuario);
     })
   }
 }

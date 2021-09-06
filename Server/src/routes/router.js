@@ -9,12 +9,15 @@ const router = express.Router();
 
 router.post('/createUser', controllerUser.createUser);
 router.post('/saveAdoptForm', controllerPerro.saveAdoptForm);
+router.post('/saveDog', controllerPerro.saveDog);
 router.post('/forgotPassword', controllerLogIn.recuperarPassword);
 router.post('/logIn', controllerLogIn.validarUsuario);
 
 router.get('/', controllerPerro.consultarPerrosInicio)
 router.get('/updateAdoptForm/:id/:estado', controllerPerro.updateAdoptForm);
+router.get('/deleteAdoptForm/:id', controllerPerro.deleteAdoptForm);
 router.get('/AdminFormAdop', controllerPerro.consultarFormulariosAdopcion)
+router.get('/RegistroPerro', controllerPerro.consultarGenericos)
 router.get('/logout', controllerLogIn.cerrarSesion);
 router.get('/PerrosAdop', controllerPerro.consultarPerros)
 router.get('/AboutUs', (req, res) => { res.render('index-1') })

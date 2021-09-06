@@ -2,6 +2,7 @@
 
 const service = require('../services/perro')
 const email = require('../services/email')
+const path = require('path')
 
 async function consultarPerros(req, res, next) {
     try {
@@ -49,10 +50,34 @@ async function saveAdoptForm(req, res) {
     }
 }
 
+async function saveDog(req, res) {
+    try {
+        service.crearPerro({ ...req.body, foto: req.files.foto.name })
+            .then(result => {
+                const file = req.files.foto;
+                const uploadPath = path.join(__dirname, '../../Public/images/') + file.name;
+
+                file.mv(uploadPath);
+                //res.render("index-3", { mensajeUsuario: "Perro registrado correctamente" })
+                //res.redirect("RegistroPerro/?mensajeUsuario='Perro registrado correctamente'")
+                res.redirect("RegistroPerro")
+            })
+            .catch(error => {
+                console.log("Error registrando perro: ===>", error);
+                res.render("index-10", { mensajeUsuario: "Ocurrió un error registrando al perro" })
+            });
+
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('Internal server error')
+    }
+}
+
 async function updateAdoptForm(req, res) {
     try {
         await service.actualizarFormularioAdopcion(req.params.id, req.params.estado).then(() =>
-            service.buscarFormularioAdopcion(req.params.id).then(formulario => email.enviarCorreoFormulario(formulario))
+            service.buscarFormularioAdopcion(req.params.id)
+                .then(formulario => email.enviarCorreoFormulario(formulario))
         );
 
         res.redirect("/AdminFormAdop")
@@ -62,10 +87,43 @@ async function updateAdoptForm(req, res) {
     }
 }
 
+async function deleteAdoptForm(req, res) {
+    try {
+        await service.borrarFormularioAdopcion(req.params.id).then(() =>
+            res.redirect("/AdminFormAdop")
+        );
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('Internal server error')
+    }
+}
+
+async function consultarGenericos(req, res) {
+    try {
+        await service.buscarRazas().then((resultRazas) =>
+            service.buscarColores().then((resultColores) =>
+                service.buscarGeneros().then((resultGeneros) =>
+                    res.render("index-10", {
+                        razas: resultRazas,
+                        colores: resultColores,
+                        generos: resultGeneros
+                    })
+                )
+            )
+        );
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('Internal server error')
+    }
+}
+
 module.exports = {
     consultarPerros,
     saveAdoptForm,
+    saveDog,
     consultarPerrosInicio,
     consultarFormulariosAdopcion,
-    updateAdoptForm
+    updateAdoptForm,
+    deleteAdoptForm,
+    consultarGenericos
 }

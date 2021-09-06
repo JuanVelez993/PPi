@@ -38,11 +38,14 @@ async function cerrarSesion(req, res, next) {
     }
 }
 
-//TODO terminar
 async function recuperarPassword(req, res, next) {
     try {
-        service.enviarCorreoPassword(req.body)
-        res.render("index-8", { mensaje: "Correo enviado correctamente" })
+        service.enviarCorreoPassword(req.body).then((result) =>
+            res.render("index-8", { mensaje: (result ? "Correo enviado correctamente" : "Ocurrió un error enviando el correo" ) })
+        ).catch(error => {
+            console.log("Error enviando Correo: ", error)
+            res.render("index-8", { mensaje: "Ocurrió un error enviando el correo" })
+        });
     } catch (err) {
         console.error(err)
         res.status(500).send('Internal server error')

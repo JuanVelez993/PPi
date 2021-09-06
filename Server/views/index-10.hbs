@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Registrarse</title>
+    <title>Registrarar Perro</title>
     <meta charset="utf-8">
     <link rel="icon" href="/images/favicon.ico">
     <link rel="shortcut icon" href="/images/favicon.ico" />
@@ -43,65 +43,61 @@
         </div>
         <div class="container_12">
             <div class="grid_5 prefix_1">
-                <form id="form" action="/saveAdoptForm" method="post">
+                <form id="form" action="/saveDog" method="post" encType="multipart/form-data">
                     {{#if mensajeUsuario}}
                     <label for="mensajeUsuario"><b>{{mensajeUsuario}}</b></label><br><br>
                     {{/if}}
-                    <label for="nombrePerro"><b>Nombre Perro: {{nombrePerro}}</b></label>
                     <fieldset class="form-register">
-                        <h4 class="ic1">Formulario de Adopcion:</h4>
+                        <h4 class="ic1">Registro de Perro:</h4>
                         <div class="mpd">
-                            <label class="mov_adop">
-                                <input class="controls" type="text" name="mov_adop" placeholder="Motivo Adopcion">
+                            <label class="nombrePerro">
+                                <input class="controls" type="text" name="nombrePerro" placeholder="Nombre Perro">
                                 <br class="clear">
                             </label>
-                            <label class="ani_cas">
-                                <input class="controls" type="text" name="ani_cas" placeholder="Animales en casa:">
+                            <label class="razas">
+                                <select name="razas" id="razas">
+                                    {{#each razas}}
+                                    <option value="{{id}}">{{descripcion}}</option>
+                                    {{/each}}
+                                </select>
+                                <br class="clear">
+                            </label>
+                            <label class="colores">
+                                <select name="colores" id="colores">
+                                    {{#each colores}}
+                                    <option value="{{id}}">{{descripcion}}</option>
+                                    {{/each}}
+                                </select>
+                                <br class="clear">
+                            </label>
+                            <label class="generos">
+                                <select name="generos" id="generos">
+                                    {{#each generos}}
+                                    <option value="{{id}}">{{descripcion}}</option>
+                                    {{/each}}
+                                </select>
                                 <br class="clear">
                             </label>
                         </div>
                         <div class="mpd">
-                            <label class="ani_ant">
-                                <input class="controls" type="text" name="ani_ant" placeholder=" Animales anteriores:">
+                            <label class="edad">
+                                <input class="controls" type="text" name="edad" placeholder=" Edad:">
                                 <br class="clear">
                             </label>
-                            <label class="hijos">
-                                <input class="controls" type="text" name="hijos" placeholder=" Numeros de hijos:">
+                            <label class="descripcion">
+                                <input class="controls" type="text" name="descripcion"
+                                    placeholder=" Descripcion Perro:">
                                 <br class="clear">
                             </label>
-                        </div>
-                        <div class="mpd">
-                            <label class="habit_cas">
-                                <input class="controls" type="text" name="habit_cas"
-                                    placeholder="Habitantes en la casa:">
-                                <br class="clear">
-                            </label>
-                            <label class="salario">
-                                <input class="controls" type="text" name="salario" placeholder="Salario:">
-                                <br class="clear">
-
-                            </label>
-                        </div>
-                        <div class="mpd">
-                            <label class="est_civ">
-                                <input class="controls" type="text" name="est_civ" placeholder="Estado civil:">
-                                <br class="clear">
-                            </label>
-                            <label class="ale_fam">
-                                <input class="controls" type="text" name="ale_fam" placeholder="Alergias familia:">
-                                <br class="clear">
-                            </label>
-                        </div>
-                        <label class="ref">
-                            <input class="controls" type="text" name="ref" placeholder="Referencias:">
+                            <input type="file" name="foto" />
                             <br class="clear">
-                        </label><br>
+                        </div>
+                        <br>
                         <div class="clear"></div>
                         <div class="mpd">
-                            <button class="btn" type="submit">Solicitar Adopcion</button>
+                            <button class="btn" type="submit">Registrar</button>
                             <button class="btn" type="reset" value="Reset">Limpiar</button>
                         </div>
-                        <input type="text" name="idPerro" value="{{idPerro}}" style="display:none">
                     </fieldset>
                 </form>
             </div>

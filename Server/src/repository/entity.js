@@ -54,8 +54,16 @@ function formularioAdopcion(data) {
     ], data);
 }
 
+function generico(data) {
+    return R.zipObj([
+        'id',
+        'descripcion'
+    ], data);
+}
+
 module.exports = {
     usuario,
     perro,
-    formularioAdopcion
+    formularioAdopcion,
+    generico
 }

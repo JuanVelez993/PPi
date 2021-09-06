@@ -26,7 +26,20 @@ async function insertUser(data) {
     }];
 
     try {
-        executeSqlInsert(sql, binds)
+        executeSql(sql, binds)
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+async function deleteFormularioAdopcion(id) {
+    const sql = "DELETE FROM FORMULARIO_ADOPCION WHERE ID_FORMULARIO = :idFormulario";
+    const binds = [{
+        idFormulario: id
+    }];
+
+    try {
+        executeSql(sql, binds)
     } catch (err) {
         console.error(err);
     }
@@ -51,7 +64,27 @@ async function insertFormularioAdopcion(data, idUsuario) {
     }];
 
     try {
-        executeSqlInsert(sql, binds)
+        executeSql(sql, binds)
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+async function insertPerro(data) {
+    const sql = "INSERT INTO PERRO values ((SELECT CASE max(ID_PERRO) WHEN NULL THEN 1 ELSE max(ID_PERRO)+1 END FROM PERRO)," +
+        ":idRaza , :idColor, :idGenero, :nombrePerro , :edad , :descripcion, :foto)";
+    const binds = [{
+        idRaza: data.razas,
+        idColor: data.colores,
+        idGenero: data.generos,
+        nombrePerro: data.nombrePerro,
+        edad: data.edad,
+        descripcion: data.descripcion,
+        foto: data.foto
+    }];
+
+    try {
+        return executeSql(sql, binds)
     } catch (err) {
         console.error(err);
     }
@@ -64,7 +97,7 @@ async function updateFormulariosAdopcion(id, estado) {
         idEstado: estado
     }];
     try {
-        executeSqlInsert(sql, binds)
+        return executeSql(sql, binds)
     } catch (err) {
         console.error(err);
     }
@@ -144,11 +177,38 @@ async function selectFormularioAdopcion(id) {
     }
 }
 
-async function executeSqlInsert(sql, binds) {
+async function selectRaza() {
+    const sql = "SELECT * FROM RAZA";
+    try {
+        return executeSelect(sql).then(result => result.map(gen => entity.generico(gen)));
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+async function selectColor() {
+    const sql = "SELECT * FROM COLOR";
+    try {
+        return executeSelect(sql).then(result => result.map(gen => entity.generico(gen)));
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+async function selectGenero() {
+    const sql = "SELECT * FROM GENERO";
+    try {
+        return executeSelect(sql).then(result => result.map(gen => entity.generico(gen)));
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+async function executeSql(sql, binds) {
     let connection;
     try {
         connection = await oracledb.getConnection(dbConfig);
-        const result = await connection.executeMany(sql, binds, options);
+        return await connection.executeMany(sql, binds, options);
     } catch (err) {
         console.error(err);
     } finally {
@@ -184,8 +244,13 @@ async function executeSelect(sql, binds) {
 exports.insert = insertUser
 exports.validarUsuario = validarUsuario
 exports.guardarFormularioAdopcion = insertFormularioAdopcion
+exports.guardarPerro = insertPerro
 exports.consultarPerros = selectPerros
 exports.consultarUsuario = selectUsuario
 exports.consultarFormulariosAdopcion = selectFormulariosAdopcion
 exports.consultarFormularioAdopcion = selectFormularioAdopcion
 exports.actualizarFormulariosAdopcion = updateFormulariosAdopcion
+exports.eliminarFormulariosAdopcion = deleteFormularioAdopcion
+exports.consultarRazas = selectRaza
+exports.consultarColores = selectColor
+exports.consultarGeneros = selectGenero

@@ -10,8 +10,12 @@ class User {
         db.guardarFormularioAdopcion(data, idUsuario)
     }
 
+    async crearPerro(data) {
+        return db.guardarPerro(data)
+    }
+
     async actualizarFormularioAdopcion(id, estado) {
-        db.actualizarFormulariosAdopcion(id, estado)
+        return db.actualizarFormulariosAdopcion(id, estado)
     }
 
     async buscarFormulariosAdopcion() {
@@ -20,6 +24,22 @@ class User {
 
     async buscarFormularioAdopcion(id) {
         return db.consultarFormularioAdopcion(id)
+    }
+
+    async borrarFormularioAdopcion(id) {
+        return db.eliminarFormulariosAdopcion(id)
+    }
+
+    async buscarRazas() {
+        return db.consultarRazas()
+    }
+
+    async buscarColores() {
+        return db.consultarColores()
+    }
+
+    async buscarGeneros() {
+        return db.consultarGeneros()
     }
 }
 
