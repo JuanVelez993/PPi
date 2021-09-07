@@ -44,10 +44,7 @@
         <div class="container_12">
             <div class="grid_5 prefix_1">
                 <form id="form" action="/saveAdoptForm" method="post">
-                    {{#if mensajeUsuario}}
-                    <label for="mensajeUsuario"><b>{{mensajeUsuario}}</b></label><br><br>
-                    {{/if}}
-                    <label for="nombrePerro"><b>Nombre Perro: {{nombrePerro}}</b></label>
+                    
                     <fieldset class="form-register">
                         <h4 class="ic1">Formulario de Adopcion:</h4>
                         <div class="mpd">
@@ -62,7 +59,7 @@
                         </div>
                         <div class="mpd">
                             <label class="ani_ant">
-                                <input class="controls" type="text" name="ani_ant" placeholder=" Animales anteriores:">
+                                <input class="controls" type="text" name="ani_ant" placeholder=" Animales propios:">
                                 <br class="clear">
                             </label>
                             <label class="hijos">
@@ -102,6 +99,10 @@
                             <button class="btn" type="reset" value="Reset">Limpiar</button>
                         </div>
                         <input type="text" name="idPerro" value="{{idPerro}}" style="display:none">
+                        {{#if mensajeUsuario}}
+                        <label for="mensajeUsuario"><b>{{mensajeUsuario}}</b></label><br><br>
+                        {{/if}}
+                        <label for="nombrePerro"><b>Nombre Perro: {{nombrePerro}}</b></label>
                     </fieldset>
                 </form>
             </div>

@@ -1,12 +1,28 @@
 <header>
+  <style>
+    .menu_block{
+      display: flex;
+      flex-wrap: wrap;
+      width: 1000px;
+      height: 70px;
+      margin-left: 1400px;
+      position: relative;
+	  float: right;
+	  padding-top: 25px;
+    }
+    li{
+      font: size 20px;
+    }
+  </style>
+  <a href="/"><img class="imglog" src="images/logo1.jpeg"></a>
   <div class="container_12">
+    
     <div class="grid_13">
-      <h1><a href="/"><img src="images/logo1.jpeg"></a> </h1>
       <div class="menu_block">
         <nav class="">
           <ul class="sf-menu">
             {{#if infoSession.isAdmin}}
-            <li><a href='/AdminFormAdop'>Administrar Adopciones</a></li>
+            <li><a href='/AdminFormAdop'>Adopciones</a></li>
             {{/if}}
 
             {{#if infoSession.isAdmin}}
@@ -36,7 +52,4 @@
       <div class="clear"></div>
     </div>
   </div>
-  {{#if infoSession.info.primerNombre}}
-   BIENVENIDO {{infoSession.info.primerNombre}} 
-  {{/if}}
 </header>

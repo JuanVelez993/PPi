@@ -44,6 +44,8 @@
     .container {
       padding: 16px;
     }
+    .marcolog{border-style: outset;
+    margin: auto;}
   </style>
   <script src="js/jquery.js"></script>
   <!--script src="js/forms.js"></!--script-->
@@ -80,12 +82,14 @@
     <div class="container_12">
 
       <div class="grid_5 prefix_1">
+        <div class="marcolog">
         <form id="form" action="logIn" method="post">
           <div class="success_wrapper">
             <div class="success">Registro exitoso!<br>
               <strong>Ya puede inciar sesion.</strong>
             </div>
           </div>
+          
           <fieldset>
             <h2>Iniciar Sesion</h2>
             {{#if mensajeError}}
@@ -114,8 +118,9 @@
 
             </form>
           </fieldset>
+          
         </form>
-
+        </div>
       </div>
     </div>
   </div>
