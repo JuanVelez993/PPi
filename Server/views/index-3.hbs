@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Perros</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog {
+            display:flex
+            flex-direction:row;
+        }
+
+    </style>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-migrate-1.1.1.js"></script>
+    <script src="js/superfish.js"></script>
+    <script src="js/jquery.equalheights.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.ui.totop.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+        });
+    </script>
+    <!--[if lt IE 8]>
+       <div style=' clear: both; text-align:center; position: relative;'>
+         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+         </a>
+      </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <link rel="stylesheet" media="screen" href="css/ie.css">
+
+    <![endif]-->
+</head>
+
+<body>
+    <!--==============================header=================================-->
+    {{> header}}
+
+    {{#if infoSession.logged}}
+    <div class="content pt1">
+        <div class="ic">More Website Templates @ TemplateMonster.com - June 10, 2013!</div>
+        <div class="container_12">
+            <div class="grid_7">
+                <h2>Perros en adopcion</h2><br>
+                {{#each perros}}
+                <div class="blog">
+                    <img src="images/{{#if rutaImagen}}{{rutaImagen}}{{else}}perro_default.png{{/if}}" alt="" class="img_inner fleft i1" width="250" height="250">
+                    <div class="extra_wrapper">
+                        
+                    </div>
+                    <div>
+                    <div class="text2 col2">{{nombre}} </div>
+                    Raza: {{raza}}<br>
+                    Color: {{color}}<br>
+                    Género: {{genero}}<br>
+                    Edad: {{edad}} año(s)<br>
+                    Descripcion: {{descripcion}}<br>
+                    <br>
+                    </div>
+                    
+                    <a href={{#if ../infoSession.logged}}"/FormAdop/{{idPerro}}/{{nombre}}"{{else}}"/LogIn"{{/if}} class="btn">Adoptar</a>
+                </div>
+                {{/each}}
+            </div>
+            <div class="grid_4 prefix_1">
+                <h2 class="ic1">Categories</h2>
+                <ul class="list1">
+                    <li>
+                        <span></span>
+                        <div class="extra_wrapper">
+                            <div class="col1"><a href="#">Tuis posuere consectetur pellente</a></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cnt"></span>
+                        <div class="extra_wrapper">
+                            <div class="col1"><a href="#">Juuis posuere consectetur pellente</a></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span></span>
+                        <div class="extra_wrapper">
+                            <div class="col1"><a href="#">Dpuis posuere honsectetur pellentio</a></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cnt"></span>
+                        <div class="extra_wrapper">
+                            <div class="col1"><a href="#">Kouis losuere honsectetur pellentit</a></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span></span>
+                        <div class="extra_wrapper">
+                            <div class="col1"><a href="#">Opuis posuere monsectetur pellentlo</a></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cnt"></span>
+                        <div class="extra_wrapper">
+                            <div class="col1"><a href="#">Jupuis posuere loonsectetur kellen</a></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class=""></span>
+                        <div class="extra_wrapper">
+                            <div class="col1"><a href="#">Kiloiy posuere onsectrytr koelltlo</a></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cnt"></span>
+                        <div class="extra_wrapper">
+                            <div class="col1"><a href="#">Derfis posuere sectetur golillentlo</a></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class=""></span>
+                        <div class="extra_wrapper">
+                            <div class="col1"><a href="#">Hokipuis koloosue jolonsectetur holo</a></div>
+                        </div>
+                    </li>
+                </ul>
+                <h2 class="head1">Recent Posts</h2>
+                <ul class="list l2">
+                    <li>
+                        <span>
+                            <time datetime="2013-01-01">26<span>APR</span></time>
+                        </span>
+                        <div class="extra_wrapper">
+                            <div class="col1"><a href="#">Duis posuere consectetur pellentesqe</a></div>Sed nisi turpis,
+                            pellentesque at ultricese in dapibus in magna. Nunc easi cipit eu ante. Nullam vitae dolor.
+                            <a href="#" class="col2">Read More</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cnt">
+                            <time datetime="2013-01-01">27<span>APR</span></time>
+                        </span>
+                        <div class="extra_wrapper">
+                            <div class="col1"><a href="#">Kuuis posuere consectetur pellentes</a></div>Eed nisi turpis,
+                            pellentesque at ultricesy in dapibus. Nunc easi diam risulacerate ut scelerisque et sus
+                            ante. <a href="#" class="col2">Read More</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>
+                            <time datetime="2013-01-01">28<span>APR</span></time>
+                        </span>
+                        <div class="extra_wrapper">
+                            <div class="col1"><a href="#">Opuis posuere honsctetur pellentesyt</a></div>Koed joliko
+                            hokino lytocio. Nunc easiloto diam sujo placerat ut scelerisque suyto scipit ante. Ullam
+                            ullcper. <a href="#" class="col2">Read More</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cnt">
+                            <time datetime="2013-01-01">29<span>APR</span></time>
+                        </span>
+                        <div class="extra_wrapper">
+                            <div class="col1"><a href="#">Opuis posuere honsctetur pellentesyt</a></div>Koed joliko
+                            hokino lytocio. Nunc easiloto diam sujo placerat ut scelerisque suyto scipit ante. Ullam
+                            ullcper. <a href="#" class="col2">Read More</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    </br>
+    </br>
+    ------------------<a href='/LogIn'>Iniciar Sesión </a>
+    {{/if}}
+    
+    <!--=======content================================-->
+
+
+
+    <!--==============================footer=================================-->
+
+    {{> footer}}
+</body>
+
+</html>

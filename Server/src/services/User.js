@@ -1,14 +1,9 @@
 'use strict'
-const db = require('../controllers/insert')
-
-
+const db = require('../repository/dbQuery')
 
 class User {
-
     async createUser(data) {
-        console.log("service: ", data)
         db.insert(data)
-            //        return data
     }
 }
 

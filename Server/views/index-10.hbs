@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registrarar Perro</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/form.css">
+
+
+    <style>
+        .pt1 {
+            background-image: url("images/fondoregis.jpg");
+            background-size: cover;
+            background-color: rgb(234, 233, 245);
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="js/jquery.js"></script>
+    <!--script src="js/forms.js"></!--script-->
+    <script src="js/jquery-migrate-1.1.1.js"></script>
+    <script src="js/superfish.js"></script>
+    <script src="js/jquery.equalheights.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.ui.totop.js"></script>
+
+    <script>
+
+        jQuery(document).ready(function () {
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+</head>
+
+<body>
+    {{> header}}
+    <div class="content pt1">
+        <div class="ic">
+
+        </div>
+        <div class="container_12">
+            <div class="grid_5 prefix_1">
+                <form id="form" action="/saveDog" method="post" encType="multipart/form-data">
+                    {{#if mensajeUsuario}}
+                    <label for="mensajeUsuario"><b>{{mensajeUsuario}}</b></label><br><br>
+                    {{/if}}
+                    <fieldset class="form-register">
+                        <h4 class="ic1">Registro de Perro:</h4>
+                        <div class="mpd">
+                            <label class="nombrePerro">
+                                <input class="controls" type="text" name="nombrePerro" placeholder="Nombre Perro">
+                                <br class="clear">
+                            </label>
+                            <label class="razas">
+                                <select name="razas" id="razas">
+                                    {{#each razas}}
+                                    <option value="{{id}}">{{descripcion}}</option>
+                                    {{/each}}
+                                </select>
+                                <br class="clear">
+                            </label>
+                            <label class="colores">
+                                <select name="colores" id="colores">
+                                    {{#each colores}}
+                                    <option value="{{id}}">{{descripcion}}</option>
+                                    {{/each}}
+                                </select>
+                                <br class="clear">
+                            </label>
+                            <label class="generos">
+                                <select name="generos" id="generos">
+                                    {{#each generos}}
+                                    <option value="{{id}}">{{descripcion}}</option>
+                                    {{/each}}
+                                </select>
+                                <br class="clear">
+                            </label>
+                        </div>
+                        <div class="mpd">
+                            <label class="edad">
+                                <input class="controls" type="text" name="edad" placeholder=" Edad:">
+                                <br class="clear">
+                            </label>
+                            <label class="descripcion">
+                                <input class="controls" type="text" name="descripcion"
+                                    placeholder=" Descripcion Perro:">
+                                <br class="clear">
+                            </label>
+                            <input type="file" name="foto" />
+                            <br class="clear">
+                        </div>
+                        <br>
+                        <div class="clear"></div>
+                        <div class="mpd">
+                            <button class="btn" type="submit">Registrar</button>
+                            <button class="btn" type="reset" value="Reset">Limpiar</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    <!--=======content================================-->
+
+
+
+    <!--==============================footer=================================-->
+
+    {{> footer}}
+</body>
+
+</html>
