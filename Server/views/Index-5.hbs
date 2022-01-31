@@ -60,9 +60,7 @@
             </div>
           </div>
 
-          {{#if mensajeUsuario}}
-            <label for="mensajeUsuario"><b>{{mensajeUsuario}}</b></label>
-          {{/if}}
+          
 
           <fieldset class="form-register">
             <h4 class="ic1">Registro de Usuario:</h4>
@@ -124,7 +122,12 @@
               <button class="btn" type="submit">Registrarse</button>
               <button class="btn" type="reset" value="Reset">Limpiar</button>
               </div>
+              <br>
+              {{#if mensajeUsuario}}
+              <label for="mensajeUsuario"><b>{{mensajeUsuario}}</b></label>
+              {{/if}}
           </fieldset>
+          
         </form>
 
       </div>
