@@ -4,7 +4,8 @@ const email = require('../services/email')
 
 class LogIn {
   async logIn(data) {
-    return db.validarUsuario(data);
+    const response = await db.validarUsuario(data);
+    return response
   }
 
   async enviarCorreoPassword(data) {

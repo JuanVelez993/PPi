@@ -1,3 +1,5 @@
+const login = require('../src/services/logIn')
+
 function filterByTerm(inputArr, searchTerm) {
     return inputArr.filter(function(arrayElement) {
         return arrayElement.url.match(searchTerm);
@@ -5,15 +7,24 @@ function filterByTerm(inputArr, searchTerm) {
 }
 
 describe("Filter function", () => {
-    test("it should filter by a search term (link)", () => {
-        const input = [
-            { id: 1, url: "https://www.url1.dev" },
-            { id: 2, url: "https://www.url2.dev" },
-            { id: 3, url: "https://www.link3.dev" }
-        ];
+    test("it should filter by a search term (link)", async () => {
+        
+        const input = await login.logIn({uname: "alexoman0512@gmail.com", psw: "123"})
 
-        const output = [{ id: 3, url: "https://www.link3.dev" }];
+        const output = {
+            idUsuario: 1,
+            primerNombre: 'fredy',
+            segundoNombre: 'alexander',
+            primerApellido: 'osman',
+            segundoApellido: 'ramirez',
+            telefono: '3045997917',
+            correo: 'alexoman0512@gmail.com',
+            direccion: 'calle 40',
+            identificacion: '1037644905',
+            password: '123',
+            cargo: 1
+          };
 
-        expect(filterByTerm(input, "link")).toEqual(output);
+        expect(input).toEqual(output);
     });
 });
