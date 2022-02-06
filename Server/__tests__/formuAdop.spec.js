@@ -1,24 +1,27 @@
-const login = require('../src/services/perro')
+const form = require('../src/services/perro')
 
-describe("Login Test", () => {
-    test("Deberia iniciar sesion con el usuario designado", async() => {
+describe("crea una solicitud de adopcion", () => {
+    test("generar una solicitud de adopcion", async() => {
+        const data = {
+            idPerro: 11,
+            mov_adop: "Para las pruebas unitarias",
+            ani_cas: "1",
+            ani_ant: "1",
+            hijos: "1",
+            habit_cas: "4",
+            salario: "3000000",
+            est_civ: "casado",
+            ale_fam: "ninguna",
+            ref: "pruebas gomez 1234",
 
-        const input = await login.logIn({ uname: "alexoman0512@gmail.com", psw: "123" })
+        }
+        const idUsuario = 11
 
-        const output = {
-            idUsuario: 1,
-            primerNombre: 'fredy',
-            segundoNombre: 'alexander',
-            primerApellido: 'osman',
-            segundoApellido: 'ramirez',
-            telefono: '3045997917',
-            correo: 'alexoman0512@gmail.com',
-            direccion: 'calle 40',
-            identificacion: '1037644905',
-            password: '123',
-            cargo: 1
-        };
+        const input = await form.crearFormularioAdopcion(data, idUsuario)
+        const output = true
 
         expect(input).toEqual(output);
     });
+
+
 });

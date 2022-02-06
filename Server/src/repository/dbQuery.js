@@ -13,6 +13,7 @@ const options = {
 
 async function insertUser(data) {
     const sql = "INSERT INTO USUARIO values ((SELECT CASE max(ID_USUARIO) WHEN NULL THEN 1 ELSE max(ID_USUARIO)+1 END FROM USUARIO), :nombre , :nombre2 , :apel , :apel2 , :tel , :email , :dir , :doc , :pwd)";
+    const response = true
     const binds = [{
         nombre: data.nombre,
         nombre2: data.nombre2,
@@ -28,8 +29,11 @@ async function insertUser(data) {
     try {
         executeSql(sql, binds)
     } catch (err) {
-        console.error(err);
+        response = false
+        console.log(err)
     }
+    return response
+
 }
 
 async function deleteFormularioAdopcion(id) {
@@ -48,6 +52,7 @@ async function deleteFormularioAdopcion(id) {
 async function insertFormularioAdopcion(data, idUsuario) {
     const sql = "INSERT INTO FORMULARIO_ADOPCION values ((SELECT CASE max(ID_FORMULARIO) WHEN NULL THEN 1 ELSE max(ID_FORMULARIO)+1 END FROM FORMULARIO_ADOPCION)," +
         ":idUsuario , :idPerro, :idEstadoAdopcion, :motivoAdopcion , :animalesEnCasa , :animalesAnteriores , :numeroHijos , :habitantesCasa , :salario , :estadoCivil , :alergiasFamilia, :referencias, SYSDATE, NULL)";
+    const response = true
     const binds = [{
         idUsuario: idUsuario,
         idPerro: data.idPerro,
@@ -66,8 +71,10 @@ async function insertFormularioAdopcion(data, idUsuario) {
     try {
         executeSql(sql, binds)
     } catch (err) {
-        console.error(err);
+        response = false,
+            console.error(err);
     }
+    return response
 }
 
 async function insertPerro(data) {
@@ -88,6 +95,7 @@ async function insertPerro(data) {
     } catch (err) {
         console.error(err);
     }
+
 }
 
 async function updateFormulariosAdopcion(id, estado) {
@@ -141,8 +149,7 @@ async function selectPerros() {
         " JOIN COLOR C ON C.ID_COLOR = P.ID_COLOR" +
         " JOIN GENERO G ON G.ID_GENERO = P.ID_GENERO" +
         " LEFT JOIN FORMULARIO_ADOPCION FA ON FA.ID_PERRO = P.ID_PERRO" +
-        " WHERE FA.ID_PERRO IS NULL OR FA.ID_ESTADO_ADOPCION = 3"
-        ;
+        " WHERE FA.ID_PERRO IS NULL OR FA.ID_ESTADO_ADOPCION = 3";
     try {
         return executeSelect(sql).then(result => result.map(perro => entity.perro(perro)));
     } catch (err) {

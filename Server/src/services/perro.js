@@ -7,7 +7,8 @@ class User {
     }
 
     async crearFormularioAdopcion(data, idUsuario) {
-        db.guardarFormularioAdopcion(data, idUsuario)
+        const response = await db.guardarFormularioAdopcion(data, idUsuario);
+        return response
     }
 
     async crearPerro(data) {

@@ -16,5 +16,5 @@ test('Inicio de sesion con gmail para completar formulario', async t => {
         .wait(1000)
         .click(pagelogin.submitUser)
         .wait(2000)
-        .expect(pagelogin.textConfirm.innerText).eql('Usuario creado correctamente'); // Comprobar resultado
+        .expect(pagelogin.textConfirm.innerText).eql('BIENVENIDO - Fredy -\n'); // Comprobar resultado
 });
