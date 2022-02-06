@@ -13,6 +13,7 @@ const options = {
 
 async function insertUser(data) {
     const sql = "INSERT INTO USUARIO values ((SELECT CASE max(ID_USUARIO) WHEN NULL THEN 1 ELSE max(ID_USUARIO)+1 END FROM USUARIO), :nombre , :nombre2 , :apel , :apel2 , :tel , :email , :dir , :doc , :pwd)";
+    const response = true
     const binds = [{
         nombre: data.nombre,
         nombre2: data.nombre2,
@@ -28,8 +29,11 @@ async function insertUser(data) {
     try {
         executeSql(sql, binds)
     } catch (err) {
-        console.error(err);
+        response = false
+        console.log(err)
     }
+    return response
+    
 }
 
 async function deleteFormularioAdopcion(id) {

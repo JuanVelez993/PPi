@@ -3,7 +3,8 @@ const db = require('../repository/dbQuery')
 
 class User {
     async createUser(data) {
-        db.insert(data)
+        const response = await db.insert(data)
+        return response
     }
 }
 
