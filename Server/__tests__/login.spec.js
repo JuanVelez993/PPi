@@ -1,11 +1,5 @@
 const login = require('../src/services/logIn')
 
-function filterByTerm(inputArr, searchTerm) {
-    return inputArr.filter(function(arrayElement) {
-        return arrayElement.url.match(searchTerm);
-    });
-}
-
 describe("Filter function", () => {
     test("it should filter by a search term (link)", async () => {
         
@@ -27,4 +21,7 @@ describe("Filter function", () => {
 
         expect(input).toEqual(output);
     });
+
+   
 });
+
