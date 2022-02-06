@@ -14,16 +14,16 @@ test('Registro de un usuario nuevo', async t => {
         .typeText(pageRegis.secondLastName, 'Londoño') // Ingresar Segundo Apellido
         .wait(2000)
         .typeText(pageRegis.phone, '2705455') // Ingresar Telefono
-        .wait(2000)
+        .wait(1000)
         .typeText(pageRegis.email, 'alexoman0512@gmail.com') // Ingresar Correo 
-        .wait(2000)
+        .wait(1000)
         .typeText(pageRegis.adress, 'Cra 27 sur 33') // Ingresar Direccion
-        .wait(2000)
+        .wait(1000)
         .typeText(pageRegis.id, '1037258963') // Ingresar Documento
-        .wait(2000)
+        .wait(1000)
         .typeText(pageRegis.password, '123') // Ingresar Contraseña
-        .wait(2000)
+        .wait(1000)
         .click(pageRegis.registerUser)
-        .wait(5000)
-        .expect(pageRegis.msgConfirm.value).eql('Usuario creado correctamente'); // Comprobar resultado
+        .wait(3000)
+        .expect(pageRegis.msgConfirm.innerText).eql('Usuario creado correctamente'); // Comprobar resultado
 });

@@ -1,7 +1,7 @@
-const login = require('../src/services/logIn')
+const login = require('../src/services/perro')
 
-describe("Filter function", () => {
-    test("it should filter by a search term (link)", async() => {
+describe("Login Test", () => {
+    test("Deberia iniciar sesion con el usuario designado", async() => {
 
         const input = await login.logIn({ uname: "alexoman0512@gmail.com", psw: "123" })
 
@@ -21,6 +21,4 @@ describe("Filter function", () => {
 
         expect(input).toEqual(output);
     });
-
-
 });

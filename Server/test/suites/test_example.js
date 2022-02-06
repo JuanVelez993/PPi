@@ -15,5 +15,6 @@ test('Inicio de sesion con gmail para completar formulario', async t => {
         .typeText(pagelogin.password, '123') // Ingresar contraseña
         .wait(1000)
         .click(pagelogin.submitUser)
-        .wait(5000)
+        .wait(2000)
+        .expect(pagelogin.textConfirm.innerText).eql('Usuario creado correctamente'); // Comprobar resultado
 });

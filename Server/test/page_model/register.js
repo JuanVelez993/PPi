@@ -10,6 +10,7 @@ export default class register {
         this.id = Selector('#form > fieldset > div:nth-child(5) > label.doc > input');
         this.password = Selector('#pwd');
         this.registerUser = Selector('#form > fieldset > div:nth-child(9) > button:nth-child(1)');
-        this.msgConfirm = Selector('#form > fieldset > label:nth-child(11)')
+        this.msgConfirm = Selector('#msgConfirm')
+
     }
 }
